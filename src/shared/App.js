@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Container, Row, Col, Button, Card} from 'react-bootstrap'
+import {Container, Row, Alert, Image} from 'react-bootstrap'
 //import {CardImage} from './components/ui/CardImage'
 
 
@@ -50,14 +50,22 @@ export default function App() {
 										<h4 className='podcast-title'>{item.Title}</h4>
 										<ul className='ul__podcast list-reset'>
 											<li>{`Ep: ${item.Episode} | ${item.CreateDate}`}</li>
-											<li>{item.Category}</li>
+											<li>
+												<span className="vertical-align-center">
+													{`${convertBytesToMegabytes(item.AudioSize)}MB`}
+												</span>
+											</li>
 										</ul>
 										<audio controls>
 											<source src={url + item.Audio}/>
 										</audio>
 										<ul className='list-reset'>
-											<li><img className="image-icon" src={url + item.Icon}/></li>
-											<li><span className="vertical-align-center">{`Audio Size: ${convertBytesToMegabytes(item.AudioSize)}MB`}</span></li>
+											<li><Image className="image-icon" src={url + item.Icon} roundedCircle/></li>
+											<li className='relative'>
+												<Alert className='alert--wrapped alert--wrapped__normal vertical-centered' variant='primary'>
+													{item.Category}
+												</Alert>
+											</li>
 										</ul>									
 										{/*
 										{<div style={{textAlign: 'right'}}>
