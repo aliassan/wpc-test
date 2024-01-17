@@ -19,6 +19,12 @@ html, body {
 img {
 	width: 100%;
 }
+img.image-icon {
+	width: 50px;
+}
+.header {
+	margin-bottom: 4rem;
+}
 /*.podcast-image {
 	margin-bottom: 1.5rem;
 }*/

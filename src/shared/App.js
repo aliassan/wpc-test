@@ -39,7 +39,7 @@ export default function App() {
 			<>{
 				data && (
 					<Container>
-						<div dangerouslySetInnerHTML={{__html: data.Body[0].About}}></div>
+						<div className="header" dangerouslySetInnerHTML={{__html: data.Body[0].About}}></div>
 						<>{console.log('data: ', data)}</>
 
 						<Row xs={1} md={2} lg={3}>
@@ -55,11 +55,18 @@ export default function App() {
 										<audio controls>
 											<source src={url + item.Audio}/>
 										</audio>
-										<div style={{textAlign: 'right'}}>
+										<ul className='list-reset'>
+											<li><img className="image-icon" src={url + item.Icon}/></li>
+											<li><span className="vertical-align-center">{`Audio Size: ${convertBytesToMegabytes(item.AudioSize)}MB`}</span></li>
+										</ul>									
+										{/*
+										{<div style={{textAlign: 'right'}}>
 											<span>{`Audio Size: ${convertBytesToMegabytes(item.AudioSize)}MB`}</span>
 										</div>
+										*/}
 									</div>
-									{/* Other information from the Timeline object */}
+									
+									
 								</div>
 							))}
 						</Row>
